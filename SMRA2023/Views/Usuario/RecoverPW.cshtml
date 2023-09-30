@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Recuperar contraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var elemento = document.getElementById("page-topbar");
+        if (elemento) {
+            elemento.style.display = "none";
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        var elementos = document.querySelectorAll(".vertical-menu");
+        elementos.forEach(function (elemento) {
+            elemento.style.display = "none";
+        });
+    });
+</script>
+
+<body>
+
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center min-vh-100">
+                        <div class="w-100 d-block bg-white shadow-lg rounded my-5">
+                            <div class="row">
+                                <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <div class="text-center mb-5">
+                                            <a href="index.html" class="text-dark font-size-22 font-family-secondary">
+                                                <i class="mdi mdi-album"></i> <b>SRMA</b>
+                                            </a>
+                                        </div>
+                                        <h1 class="h5 mb-1">Recuperar tu contraseña</h1>
+                                        <p class="text-muted mb-4">Ingresa tu correo electronico y se te enviarán las intrucciones para recuperar la contraseña.</p>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail">Correo electronico</label>
+                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo electronico">
+                                            </div>
+                                            <a href="@Url.Action("Index","Usuario")" id="miBoton" class="btn btn-success btn-block waves-effect waves-light"> Recuperar </a>
+
+                                        </form>
+
+                                        <div class="row mt-5">
+                                            <div class="col-12 text-center">
+                                                <p class="text-muted">¿Ya tienes una cuenta?  <a href="@Url.Action("Index","Usuario")" class="text-muted font-weight-medium ml-1"><b>Inicia sesion</b></a></p>
+                                                <p class="text-muted mb-0">¿No tienes una cuenta? <a href="@Url.Action("Register","Usuario")" class="text-muted font-weight-medium ml-1"><b>Registrare</b></a></p>
+                                            </div> <!-- end col -->
+                                        </div>
+                                        <!-- end row -->
+                                    </div> <!-- end .padding-5 -->
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+                        </div> <!-- end .w-100 -->
+                    </div> <!-- end .d-flex -->
+                </div> <!-- end col-->
+            </div> <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
+    <script>
+        const miBoton = document.getElementById("miBoton");
+
+        miBoton.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevenir la redirección predeterminada del enlace
+
+            Swal.fire({
+                title: '¿Deseas recuperar tu cuenta?',
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí,Recuperar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = miBoton.getAttribute('href'); // Redireccionar si se confirma
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

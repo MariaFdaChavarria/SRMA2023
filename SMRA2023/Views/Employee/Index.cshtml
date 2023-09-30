@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "Empleados";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<html>
+<body>
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+            </div>
+            <div class="row">
+                <div class="col-xl-10">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Empleados</h4>
+                            <div>
+                                <a href="@Url.Action("Create","Employee")" class="btn btn-success btn-block waves-effect waves-light"> Agregar empleado </a>
+                            </div>
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Buscar empleado ..." aria-label="Employee Search">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-centered table-striped table-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Cedula</th>
+                                            <th>Edad</th>
+                                            <th>Fecha Nacimiento</th>
+                                            <th>Celular</th>
+                                            <th>Telefono</th>
+                                            <th>Correo electronico</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-user">
+                                                <img src="~/Theme/assets/images/users/avatar-4.jpg" alt="table-user" class="mr-2 avatar-xs rounded-circle">
+                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Raúl</a>
+                                            </td>
+                                            <td>
+                                                Jimenez
+                                            </td>
+                                            <td>
+                                                65235145
+                                            </td>
+                                            <td>
+                                                25
+                                            </td>
+                                            <td>
+                                                06/05/1988
+                                            </td>
+                                            <td>
+                                                45655236
+                                            </td>
+                                            <td>
+                                                22956351
+                                            </td>
+                                            <td>
+                                                dasvvvddr@dayrep.com
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="@Url.Action("Edit","Employee")" class="btn btn-outline-secondary"> Editar </a>
+                                                    <a href="@Url.Action("EmployeeInfo","Employee")" class="btn btn-outline-primary"> Información </a>
+                                                    <a href="@Url.Action("Index","Employee")" id="miBoton2" class="btn btn-outline-danger "> Desactivar </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="table-user">
+                                                <img src="~/Theme/assets/images/users/avatar-3.jpg" alt="table-user" class="mr-2 avatar-xs rounded-circle">
+                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Miriam</a>
+                                            </td>
+                                            <td>
+                                                Elizondo
+                                            </td>
+                                            <td>
+                                                5213654
+                                            </td>
+                                            <td>
+                                                32
+                                            </td>
+                                            <td>
+                                                09/24/1980
+                                            </td>
+                                            <td>
+                                                6253251
+                                            </td>
+                                            <td>
+                                                2536212
+                                            </td>
+                                            <td>
+                                                areirof@gmail.com
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="@Url.Action("Edit","Employee")" class="btn btn-outline-secondary"> Editar </a>
+                                                    <a href="@Url.Action("EmployeeInfo","Employee")" class="btn btn-outline-primary"> Información </a>
+                                                    <a href="@Url.Action("Index","Employee")" id="miBoton2" class="btn btn-outline-danger "> Desactivar </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-user">
+                                                <img src="~/Theme/assets/images/users/avatar-8.jpg" alt="table-user" class="mr-2 avatar-xs rounded-circle">
+                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Alexa</a>
+                                            </td>
+                                            <td>
+                                                Toruño
+                                            </td>
+                                            <td>
+                                                40251361
+                                            </td>
+                                            <td>
+                                                28
+                                            </td>
+                                            <td>
+                                                12/23/1994
+                                            </td>
+                                            <td>
+                                                6152361
+                                            </td>
+                                            <td>
+                                                2245612
+                                            </td>
+                                            <td>
+                                                sebasas@gmail.com
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="@Url.Action("Edit","Employee")" class="btn btn-outline-secondary"> Editar </a>
+                                                    <a href="@Url.Action("EmployeeInfo","Employee")" class="btn btn-outline-primary"> Información </a>
+                                                    <a href="@Url.Action("Index","Employee")" id="miBoton2" class="btn btn-outline-danger "> Desactivar </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-user">
+                                                <img src="~/Theme/assets/images/users/avatar-1.jpg" alt="table-user" class="mr-2 avatar-xs rounded-circle">
+                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Sebastian</a>
+                                            </td>
+                                            <td>
+                                                Perez
+                                            </td>
+                                            <td>
+                                                4251563
+                                            </td>
+                                            <td>
+                                                23
+                                            </td>
+                                            <td>
+                                                08/22/2000
+                                            </td>
+                                            <td>
+                                                64526392
+                                            </td>
+                                            <td>
+                                                22458623
+                                            </td>
+                                            <td>
+                                                allan234@gmail.com
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="@Url.Action("Edit","Employee")" class="btn btn-outline-secondary"> Editar </a>
+                                                    <a href="@Url.Action("EmployeeInfo","Employee")" class="btn btn-outline-primary"> Información </a>
+                                                    <a href="@Url.Action("Index","Employee")" id="miBoton2" class="btn btn-outline-danger "> Desactivar </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container-fluid -->
+    </div>
+    </div>
+    <script>
+        const miBoton2 = document.getElementById("miBoton2");
+
+        miBoton2.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevenir la redirección predeterminada del enlace
+
+            Swal.fire({
+                title: '¿Deseas desactivar al empleado?',
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: '¡Sí, desactivar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = miBoton2.getAttribute('href'); // Redireccionar si se confirma
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
