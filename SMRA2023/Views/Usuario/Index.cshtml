@@ -61,8 +61,10 @@
                                         @Html.AntiForgeryToken()
                                             <div class="form-group">
 
-
                                             @Html.TextBoxFor(m => m.email, new {@class="form-control form-control-user", @placeholder="Correo", @required=true})
+                                            <div>
+                                                 
+                                            </div>
                                             @Html.TextBoxFor(m => m.passwordU, new {@class="form-control form-control-user", @placeholder="Contraseña", @Type = "password", @required=true})
                                         </div>
                                           
