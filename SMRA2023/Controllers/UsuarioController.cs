@@ -149,6 +149,25 @@ namespace SMRA2023.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult DeleteAcc()
+        {
+            var IdUser = HttpContext.Session.GetInt32("IdSession");
+
+            long UserId = (long)IdUser;
+
+            var result = _usuario.DeleteAcc(UserId);
+
+            if (result != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Usuario");
+            }
+        }
+
 
     }
 

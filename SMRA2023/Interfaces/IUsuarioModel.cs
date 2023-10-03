@@ -16,6 +16,8 @@ namespace SMRA2023.Interfaces
 
         public UsuarioEntities? RegUserProg(long IdUser);
 
+        public UsuarioEntities? DeleteAcc(long IdUser);
+
 
     }
 

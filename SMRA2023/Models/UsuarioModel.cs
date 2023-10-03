@@ -184,6 +184,21 @@ namespace SMRA2023.Models
             }
         }
 
+        public UsuarioEntities? DeleteAcc(long UIdUser)
+
+        {
+            using (var connection = new MySqlConnection(_configuration.GetConnectionString("defaultconnection")))
+            {
+
+                connection.Execute("DeleteAcc",
+                       new { UIdUser },
+                       commandType: System.Data.CommandType.StoredProcedure);
+
+                    return null;
+                }
+            
+        }
+
 
 
     }

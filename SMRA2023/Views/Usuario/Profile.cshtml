@@ -75,6 +75,13 @@
                                             }
 
                                         </div>
+                                        <div class="form-group">
+                                            @using (Html.BeginForm("DeleteAcc", "Usuario", FormMethod.Post))
+                                            {
+                                                <input type="submit" class="btn btn-danger btn-block waves-effect waves-light" value="Eliminar cuenta" />
+                                            }
+
+                                        </div>
 
                                         <!-- end row -->
                                     </div> <!-- end .padding-5 -->
