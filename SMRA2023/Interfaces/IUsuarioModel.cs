@@ -12,7 +12,7 @@ namespace SMRA2023.Interfaces
 
         public UsuarioEntities? ConsultAcc(long qIdUser);
 
-        public UsuarioEntities? UpdateUser(UsuarioEntities usuario);
+        public UsuarioEntities? UpdateUser(UsuarioEntities usuario, long IdUser);
 
         public UsuarioEntities? RegUserProg(long IdUser);
 

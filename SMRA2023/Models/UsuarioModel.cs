@@ -140,7 +140,7 @@ namespace SMRA2023.Models
             }
         }
 
-        public UsuarioEntities? UpdateUser(UsuarioEntities usuario)
+        public UsuarioEntities? UpdateUser(UsuarioEntities usuario, long IdUser)
         {
             if (usuario != null)
             {
@@ -148,8 +148,8 @@ namespace SMRA2023.Models
                 {
                     var result = connection.Execute("EditAcc",
                        new
-                       {usuario.IdUser,usuario.userName,usuario.lastName,usuario.cellphone,usuario.email,usuario.passwordU},
-                       commandType: CommandType.StoredProcedure); ;
+                       {IdUser,usuario.userName,usuario.lastName,usuario.cellphone,usuario.email,usuario.passwordU},
+                       commandType: CommandType.StoredProcedure);
 
                     return usuario;
                 }

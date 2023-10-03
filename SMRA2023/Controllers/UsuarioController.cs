@@ -118,7 +118,13 @@ namespace SMRA2023.Controllers
         [HttpPost]
         public IActionResult UpdateUser(UsuarioEntities usuario)
         {
-            var resultado = _usuario.UpdateUser(usuario);
+
+            var IdUser = HttpContext.Session.GetInt32("IdSession");
+
+            long UserId = (long)IdUser;
+
+            var resultado = _usuario.UpdateUser(usuario, UserId);
+
 
             if (resultado != null)
             {
