@@ -34,9 +34,16 @@ namespace SMRA2023.Controllers
                 string NameSession = HttpContext.Session.GetString("NameSession");
                 ViewBag.NameSession = NameSession;
 
-                return RedirectToAction("Index","Home");
+                if (result.idRol == 1)
+                {
+                    return RedirectToAction("Admin", "Admin");
+                }
 
-            }else 
+                return RedirectToAction("Index", "Home");
+
+
+            }
+            else 
             {
                 TempData["MensajeError"] = "Usuario incorrecto o no existe.";
                 return RedirectToAction("Index", "Usuario");
@@ -174,10 +181,29 @@ namespace SMRA2023.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult RegisterEmployee(UsuarioEntities employee)
+        {
+            employee.idRol = 3;
+            employee.statusU = true;
+            employee.passwordU = "password1";
+
+            var resultado = _usuario.RegisterUser(employee);
+
+            if (resultado != null)
+            {
+                return RedirectToAction("Index", "Employee");
+            }
+            else
+            {
+                return RedirectToAction("Create", "Employee");
+            }
+        }
+
 
     }
 
-
+    
 
 }
 
