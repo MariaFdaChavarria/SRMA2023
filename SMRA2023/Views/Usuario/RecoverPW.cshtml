@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SMRA2023.Entities.UsuarioEntities
+
+@{
     ViewBag.Title = "Recuperar contraseña";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -37,14 +39,15 @@
                                         </div>
                                         <h1 class="h5 mb-1">Recuperar tu contraseña</h1>
                                         <p class="text-muted mb-4">Ingresa tu correo electronico y se te enviarán las intrucciones para recuperar la contraseña.</p>
-                                        <form>
+                                        @using (Html.BeginForm("email_Recovery", "Usuario", FormMethod.Post, new { @class = "pt-3" }))
+                                        {
                                             <div class="form-group">
-                                                <label for="exampleInputEmail">Correo electronico</label>
-                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo electronico">
+                                                @Html.TextBoxFor(m => m.email, new {@class = "form-control form-control-lg", @placeholder="Correo", @Type="Email", @required=true})
                                             </div>
-                                            <a href="@Url.Action("Index","Usuario")" id="miBoton" class="btn btn-success btn-block waves-effect waves-light"> Recuperar </a>
-
-                                        </form>
+                                            <div class="mt-3">
+                                                <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Recuperar contraseña">
+                                            </div>
+                                        }
 
                                         <div class="row mt-5">
                                             <div class="col-12 text-center">
@@ -64,27 +67,31 @@
         <!-- end container -->
     </div>
     <!-- end page -->
+  
+</body>
+@{
+    var ErrorCorreo = TempData["ErrorCorreo"] as string;
+    var ContrasenaRecuperada = TempData["ContrasenaRecuperada"] as string;
+    var Exito = TempData["Exito"] as string;
+}
+
+@if (!string.IsNullOrEmpty(ErrorCorreo))
+{
     <script>
-        const miBoton = document.getElementById("miBoton");
-
-        miBoton.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevenir la redirección predeterminada del enlace
-
-            Swal.fire({
-                title: '¿Deseas recuperar tu cuenta?',
-                icon: 'question',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: '¡Sí,Recuperar!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = miBoton.getAttribute('href'); // Redireccionar si se confirma
-                }
-            });
+        Swal.fire({
+            title: '@ErrorCorreo',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
         });
     </script>
-</body>
-
-</html>
+}
+else if (!string.IsNullOrEmpty(ContrasenaRecuperada))
+{
+    <script>
+        Swal.fire({
+            title: '@ContrasenaRecuperada',
+            icon: 'success',
+            confirmButtonText: 'Entendido'
+        });
+    </script>
+}

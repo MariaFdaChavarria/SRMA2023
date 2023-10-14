@@ -22,6 +22,10 @@
 
 <body>
 
+    @{
+        var nameSession = Context.Session.GetString("NameSession");
+    }
+
     <!-- Begin page -->
     <div id="layout-wrapper">
         @RenderBody()
@@ -29,11 +33,12 @@
             <div class="navbar-header">
                 <!-- LOGO -->
                 <div class="navbar-brand-box d-flex align-items-left">
-
+                    
                     <a href="@Url.Action("Index","Home")" class="logo">
                         <i class="mdi mdi-album"></i>
                         <span>
                             SRMA
+                            
                         </span>
                     </a>
                     <button type="button" class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect waves-light" id="vertical-menu-btn">
@@ -125,7 +130,10 @@
                     <div class="dropdown d-inline-block ml-2">
                         <button type="button" class="btn header-item waves-effect waves-light" id="page-header-user-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="d-none d-sm-inline-block ml-1">Bryan</span>
+                            <span class="d-none d-sm-inline-block ml-1">
+                                <i class="mdi mdi-account "></i>
+
+                            </span>
                             <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -201,7 +209,7 @@
 
     </div>
     <!-- end main content-->
-    </div>
+
     <!-- END layout-wrapper -->
     <!-- Overlay-->
     <div class="menu-overlay"></div>
